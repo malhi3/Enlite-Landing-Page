@@ -1,0 +1,95 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Paper Generator</title>
+  <!--<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">-->
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118781709-1"></script>
+  <script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-118781709-1');
+  </script>
+</head>
+
+<body>
+  <div class="container-fluid" id="lead">
+    <div class="row">
+      <h1 class="display-3" id="leadText">Paper Generator</h1>
+      <p id="leadDescription">by <img src="logo.png" alt="Enlite" id="leadImage"></p>
+    </div>
+  </div>
+
+  <div class="container-fluid" id="options">
+    <div class="row" id="generation-line">
+        <h2 class="top-text text-before-button">Generate a</h2>
+        <div class="select-style text-before-button">
+         <select name="subject" id="selectSubject">
+          <option value="Biology">Biology</option>
+          <option value="Chemistry">Chemistry</option>
+          <option value="Physics">Physics</option>
+         </select>
+        </div>
+		<h2 class="top-text text-before-button">paper, with</h2>
+        <div class="select-style text-before-button" id="number-select">
+         <select name="number" id="selectNumber" >
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="15">15</option>
+          <option value="20">20</option>
+          <option value="25">25</option>
+          <option value="30">30</option>
+         </select>
+        </div>
+		<h2 class="top-text text-before-button">questions</h2>
+        <button onClick="randomiseQuestion()" class="button" id="generate-button">Generate</button>
+				<ul id="answers-list">
+			<li><button onClick="toggleAnswers();" id="toggle-button" class="button answer-buttons">Show Answers</button></li>
+			<!-- <li>Rounded switch <h3>Show Answers</h3>
+			<label class="switch">
+  				<input type="checkbox">
+  				<span class="slider round"></span>
+			</label></li>-->
+		</ul>
+    </div>
+  </div>
+
+	<div id="loader" style="display: none;"></div>
+	
+  <div class="container" id="questions">
+    <div class="row">
+
+	
+      <table width="80%" id="table" style="border-collapse:separate;">
+      </table>
+		<div id="placeholder-text">
+			<h3>Generate some questions</h3>
+		</div>
+    </div>
+  </div>
+	
+  <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-storage.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/4.13.0/firebase-database.js"></script>
+
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDUonM4xeVpbV2nWSV3RzMCdXtA8eeiDls",
+      authDomain: "igcse-topic-selector.firebaseapp.com",
+      databaseURL: "https://igcse-topic-selector.firebaseio.com",
+      projectId: "igcse-topic-selector",
+      storageBucket: "igcse-topic-selector.appspot.com",
+      messagingSenderId: "977671931749"
+    };
+    firebase.initializeApp(config);
+  </script>
+  <script type="text/javascript" src="question-generator.js"></script>
+</body>
+</html>
