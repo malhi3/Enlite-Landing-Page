@@ -33,7 +33,12 @@ function randomiseQuestion(){
 	
 	var arr = [];
 	while(arr.length < number){
-    	var randomNumber = Math.floor((Math.random()*30) + 1);
+		var randomNumber = 0;
+		if(subject!=="Economics"){
+    		randomNumber = Math.floor((Math.random()*30) + 1);
+		} else {
+			randomNumber = Math.floor((Math.random()*59) + 1);
+		}
     	if(arr.indexOf(randomNumber) > -1) {continue;}
     	arr[arr.length] = randomNumber;
 	}
@@ -73,7 +78,8 @@ function addQuestion(increment, questionNo, parentTdId, parentTrId, incrementTdI
 		
 		//Creating question images
 		var question = document.createElement("img");
-		question.setAttribute("id", "Bio"+increment);
+		question.setAttribute("id", subject+increment);
+		question.setAttribute("class", subject+"-question-img");
 		
 		//Creating numbering on the side
 		var qnumber = document.createElement("p");
