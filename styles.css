@@ -173,7 +173,9 @@ li{
 	margin-top: 10px;
 }
 
-
+.Economics-question-img{
+	width: 80%;
+}
 
 #loader {
   position: absolute;
