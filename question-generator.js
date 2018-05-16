@@ -37,7 +37,7 @@ function randomiseQuestion(){
 		if(subject!=="Economics"){
     		randomNumber = Math.floor((Math.random()*30) + 1);
 		} else {
-			randomNumber = Math.floor((Math.random()*59) + 1);
+			randomNumber = Math.floor((Math.random()*89) + 1);
 		}
     	if(arr.indexOf(randomNumber) > -1) {continue;}
     	arr[arr.length] = randomNumber;
